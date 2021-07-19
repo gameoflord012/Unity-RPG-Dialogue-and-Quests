@@ -13,40 +13,41 @@ MonoBehaviour:
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: 
-    text: 42342
+  - uniqueID: a
+    text: Hey this is A
     children:
-    - 
-    position:
+    - b
+    - c
+    rect:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-  - uniqueID: 
-    text: 423
+      x: 31
+      y: 24
+      width: 200
+      height: 200
+  - uniqueID: b
+    text: Hey this is B
     children: []
-    position:
+    rect:
       serializedVersion: 2
-      x: 20
-      y: 20
+      x: 271
+      y: 265
       width: 200
       height: 100
-  - uniqueID: 
-    text: 'with you shiet me '
+  - uniqueID: c
+    text: Hey this is C
     children: []
-    position:
+    rect:
       serializedVersion: 2
-      x: 250
-      y: 20
+      x: 274
+      y: 26
       width: 200
-      height: 200
-  - uniqueID: 
-    text: 4234123
+      height: 100
+  - uniqueID: d
+    text: Hey this is D
     children: []
-    position:
+    rect:
       serializedVersion: 2
-      x: 20
-      y: 200
+      x: 25
+      y: 263
       width: 200
-      height: 200
+      height: 100
