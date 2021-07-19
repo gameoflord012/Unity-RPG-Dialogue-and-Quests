@@ -10,20 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df26a9b68512cd54abc2e10561dc57d9, type: 3}
-  m_Name: New Dialogue
+  m_Name: New Dialogue 1
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: 3213
-    text: 42342
-    children:
-    - 
-  - uniqueID: sdasef1f2f
-    text: 423
-    children:
-    - 
-  - uniqueID: f21c4dasf
-    text: 'with you shiet me '
-    children: []
-  - uniqueID: ff232323r
-    text: 4234123
+  - uniqueID: 
+    text: 231
     children: []
