@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using GameDevTV.Core.UI.Tooltips;
 using UnityEngine;
-using GameDevTV.Core.UI.Tooltips;
 
 namespace GameDevTV.UI.Inventories
 {

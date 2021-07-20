@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using GameDevTV.Core.UI.Dragging;
+﻿using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
+using UnityEngine;
 
 namespace GameDevTV.UI.Inventories
 {
@@ -21,15 +18,15 @@ namespace GameDevTV.UI.Inventories
         Equipment playerEquipment;
 
         // LIFECYCLE METHODS
-       
-        private void Awake() 
+
+        private void Awake()
         {
             var player = GameObject.FindGameObjectWithTag("Player");
             playerEquipment = player.GetComponent<Equipment>();
             playerEquipment.equipmentUpdated += RedrawUI;
         }
 
-        private void Start() 
+        private void Start()
         {
             RedrawUI();
         }
@@ -48,7 +45,7 @@ namespace GameDevTV.UI.Inventories
 
         public void AddItems(InventoryItem item, int number)
         {
-            playerEquipment.AddItem(equipLocation, (EquipableItem) item);
+            playerEquipment.AddItem(equipLocation, (EquipableItem)item);
         }
 
         public InventoryItem GetItem()

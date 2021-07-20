@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using GameDevTV.Inventories;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using GameDevTV.Inventories;
-using TMPro;
 
 namespace GameDevTV.UI.Inventories
 {

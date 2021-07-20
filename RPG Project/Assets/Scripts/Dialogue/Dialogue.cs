@@ -1,30 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace RPG.Dialogue
 {
     [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue", order = 0)]
-    public class Dialogue : ScriptableObject
+    public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField]
         List<DialogueNode> nodes = new List<DialogueNode>();
 
         Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
-
-#if UNITY_EDITOR
-        private void Awake()
-        {
-            Debug.Log("Awake from " + name);
-            if(nodes.Count == 0)
-            {
-                DialogueNode rootNode = new DialogueNode();
-                rootNode.uniqueID = Guid.NewGuid().ToString();
-                nodes.Add(rootNode);
-            }
-        }
-#endif
 
         private void OnValidate()
         {
@@ -36,11 +23,11 @@ namespace RPG.Dialogue
             nodeLookup.Clear();
             foreach (DialogueNode node in GetAllNodes())
             {
-                nodeLookup.Add(node.uniqueID, node);
+                nodeLookup.Add(node.name, node);
             }
         }
 
-        public IEnumerable<DialogueNode> GetAllNodes()        
+        public IEnumerable<DialogueNode> GetAllNodes()
         {
             return nodes;
         }
@@ -52,35 +39,87 @@ namespace RPG.Dialogue
 
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)
         {
-            foreach(string childName in parentNode.children)
+            foreach (string childName in parentNode.GetChildrenIENumberable())
             {
-                if(nodeLookup.ContainsKey(childName))
+                if (nodeLookup.ContainsKey(childName))
                 {
                     yield return nodeLookup[childName];
                 }
             }
         }
 
-        public void CreateNode(DialogueNode parent)
+#if UNITY_EDITOR
+        public DialogueNode GetCreatedNode(DialogueNode parent)
         {
-            DialogueNode child = new DialogueNode();
-            child.uniqueID = Guid.NewGuid().ToString();
-            parent.children.Add(child.uniqueID);
-            nodes.Add(child);
+            DialogueNode newNode = MakeNode(parent);
+
+            Undo.RegisterCreatedObjectUndo(newNode, "Created new Node");
+            Undo.RecordObject(this, "Added Dialogue Node");
+
+            AddNode(newNode);
+            return newNode;
+        }
+
+        private void AddNode(DialogueNode newNode)
+        {
+            nodes.Add(newNode);
             OnValidate();
         }
 
-        public void DeleteNode(DialogueNode node)
+        private static DialogueNode MakeNode(DialogueNode parent)
         {
-            nodes.Remove(node);
-            nodeLookup.Remove(node.uniqueID);
+            DialogueNode newNode = CreateInstance<DialogueNode>();
+            newNode.name = Guid.NewGuid().ToString();
 
-            foreach(DialogueNode parent in GetAllNodes())
+            if (parent != null)
             {
-                parent.children.Remove(node.uniqueID);
+                parent.AddChild(newNode.name);
             }
 
+            return newNode;
+        }
+
+        public void DeleteNode(DialogueNode nodeToDelete)
+        {
+            Undo.RecordObject(this, "Deleted Dialogue Node");
+            nodes.Remove(nodeToDelete);
+            nodeLookup.Remove(nodeToDelete.name);
+
+            foreach (DialogueNode parent in GetAllNodes())
+            {
+                parent.RemoveChild(nodeToDelete.name);
+            }
+
+            Undo.DestroyObjectImmediate(nodeToDelete);
+
             OnValidate();
+        }
+#endif
+
+        public void OnBeforeSerialize()
+        {
+#if UNITY_EDITOR
+            if (nodes.Count == 0)
+            {
+                DialogueNode newNode = MakeNode(null);
+                AddNode(newNode);
+            }
+
+            if (AssetDatabase.GetAssetPath(this) != "")
+            {
+                foreach (DialogueNode node in GetAllNodes())
+                {
+                    if (AssetDatabase.GetAssetPath(node) == "")
+                    {
+                        AssetDatabase.AddObjectToAsset(node, this);
+                    }
+                }
+            }
+#endif
+        }
+
+        public void OnAfterDeserialize()
+        {
         }
     }
 }

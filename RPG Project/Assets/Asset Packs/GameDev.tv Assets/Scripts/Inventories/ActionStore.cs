@@ -1,7 +1,7 @@
-﻿using System;
+﻿using GameDevTV.Saving;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using GameDevTV.Saving;
 
 namespace GameDevTV.Inventories
 {
@@ -15,7 +15,7 @@ namespace GameDevTV.Inventories
     {
         // STATE
         Dictionary<int, DockedItemSlot> dockedItems = new Dictionary<int, DockedItemSlot>();
-        private class DockedItemSlot 
+        private class DockedItemSlot
         {
             public ActionItem item;
             public int number;
@@ -65,7 +65,7 @@ namespace GameDevTV.Inventories
         public void AddAction(InventoryItem item, int index, int number)
         {
             if (dockedItems.ContainsKey(index))
-            {  
+            {
                 if (object.ReferenceEquals(item, dockedItems[index].item))
                 {
                     dockedItems[index].number += number;
@@ -121,7 +121,7 @@ namespace GameDevTV.Inventories
                     storeUpdated();
                 }
             }
-            
+
         }
 
         /// <summary>

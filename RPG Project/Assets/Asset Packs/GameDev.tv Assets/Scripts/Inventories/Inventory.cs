@@ -1,6 +1,6 @@
-﻿using System;
+﻿using GameDevTV.Saving;
+using System;
 using UnityEngine;
-using GameDevTV.Saving;
 
 namespace GameDevTV.Inventories
 {
@@ -225,7 +225,7 @@ namespace GameDevTV.Inventories
             public string itemID;
             public int number;
         }
-    
+
         object ISaveable.CaptureState()
         {
             var slotStrings = new InventorySlotRecord[inventorySize];

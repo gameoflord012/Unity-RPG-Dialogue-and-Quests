@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using GameDevTV.Utils;
+﻿using GameDevTV.Utils;
+using System;
 using UnityEngine;
 
 namespace RPG.Stats
@@ -21,31 +19,34 @@ namespace RPG.Stats
 
         Experience experience;
 
-        private void Awake() {
+        private void Awake()
+        {
             experience = GetComponent<Experience>();
             currentLevel = new LazyValue<int>(CalculateLevel);
         }
 
-        private void Start() 
+        private void Start()
         {
             currentLevel.ForceInit();
         }
 
-        private void OnEnable() {
+        private void OnEnable()
+        {
             if (experience != null)
             {
                 experience.onExperienceGained += UpdateLevel;
             }
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             if (experience != null)
             {
                 experience.onExperienceGained -= UpdateLevel;
             }
         }
 
-        private void UpdateLevel() 
+        private void UpdateLevel()
         {
             int newLevel = CalculateLevel();
             if (newLevel > currentLevel.value)
@@ -63,7 +64,7 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat)
         {
-            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat)/100);
+            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat) / 100);
         }
 
         private float GetBaseStat(Stat stat)

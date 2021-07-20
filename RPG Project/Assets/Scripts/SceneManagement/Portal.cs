@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
 using RPG.Control;
-using GameDevTV.Saving;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -22,7 +20,8 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeInTime = 2f;
         [SerializeField] float fadeWaitTime = 0.5f;
 
-        private void OnTriggerEnter(Collider other) {
+        private void OnTriggerEnter(Collider other)
+        {
             if (other.tag == "Player")
             {
                 StartCoroutine(Transition());
@@ -43,7 +42,7 @@ namespace RPG.SceneManagement
             SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
             PlayerController playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             playerController.enabled = false;
-            
+
             yield return fader.FadeOut(fadeOutTime);
 
             savingWrapper.Save();
@@ -54,7 +53,7 @@ namespace RPG.SceneManagement
 
 
             savingWrapper.Load();
-            
+
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
 

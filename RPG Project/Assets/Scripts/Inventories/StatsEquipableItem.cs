@@ -1,7 +1,7 @@
 
-using System.Collections.Generic;
 using GameDevTV.Inventories;
 using RPG.Stats;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Inventories
@@ -19,7 +19,7 @@ namespace RPG.Inventories
         {
             public Stat stat;
             public float value;
-        }   
+        }
 
         public IEnumerable<float> GetAdditiveModifiers(Stat stat)
         {

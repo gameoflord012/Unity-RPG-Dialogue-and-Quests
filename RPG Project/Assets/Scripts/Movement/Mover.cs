@@ -1,8 +1,8 @@
-﻿using RPG.Core;
-using GameDevTV.Saving;
+﻿using GameDevTV.Saving;
+using RPG.Attributes;
+using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
-using RPG.Attributes;
 
 namespace RPG.Movement
 {
@@ -15,7 +15,8 @@ namespace RPG.Movement
         NavMeshAgent navMeshAgent;
         Health health;
 
-        private void Awake() {
+        private void Awake()
+        {
             navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
         }

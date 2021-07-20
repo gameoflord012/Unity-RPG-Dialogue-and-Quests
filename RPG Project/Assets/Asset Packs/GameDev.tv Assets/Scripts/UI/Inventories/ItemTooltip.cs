@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using GameDevTV.Inventories;
 using TMPro;
-using GameDevTV.Inventories;
+using UnityEngine;
 
 namespace GameDevTV.UI.Inventories
 {

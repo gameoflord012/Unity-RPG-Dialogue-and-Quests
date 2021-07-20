@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace RPG.Core
@@ -9,7 +8,8 @@ namespace RPG.Core
 
         static bool hasSpawned = false;
 
-        private void Awake() {
+        private void Awake()
+        {
             if (hasSpawned) return;
 
             SpawnPersistentObjects();

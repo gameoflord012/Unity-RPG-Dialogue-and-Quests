@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace GameDevTV.Core.UI.Dragging
@@ -73,7 +71,7 @@ namespace GameDevTV.Core.UI.Dragging
                 DropItemIntoContainer(container);
             }
 
-            
+
         }
 
         private IDragDestination<T> GetContainer(PointerEventData eventData)
@@ -95,8 +93,8 @@ namespace GameDevTV.Core.UI.Dragging
             var sourceContainer = source as IDragContainer<T>;
 
             // Swap won't be possible
-            if (destinationContainer == null || sourceContainer == null || 
-                destinationContainer.GetItem() == null || 
+            if (destinationContainer == null || sourceContainer == null ||
+                destinationContainer.GetItem() == null ||
                 object.ReferenceEquals(destinationContainer.GetItem(), sourceContainer.GetItem()))
             {
                 AttemptSimpleTransfer(destination);

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace GameDevTV.Utils
@@ -23,7 +22,8 @@ namespace GameDevTV.Utils
         static bool hasSpawned = false;
 
         // PRIVATE
-        private void Awake() {
+        private void Awake()
+        {
             if (hasSpawned) return;
 
             SpawnPersistentObjects();

@@ -1,10 +1,9 @@
-using RPG.Combat;
-using RPG.Movement;
-using UnityEngine;
 using RPG.Attributes;
+using RPG.Movement;
 using System;
-using UnityEngine.EventSystems;
+using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 namespace RPG.Control
 {
@@ -26,14 +25,15 @@ namespace RPG.Control
 
         bool isDraggingUI = false;
 
-        private void Awake() {
+        private void Awake()
+        {
             health = GetComponent<Health>();
         }
 
         private void Update()
         {
             if (InteractWithUI()) return;
-            if (health.IsDead()) 
+            if (health.IsDead())
             {
                 SetCursor(CursorType.None);
                 return;

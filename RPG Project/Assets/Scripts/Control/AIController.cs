@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using GameDevTV.Utils;
+using RPG.Attributes;
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
-using RPG.Attributes;
-using GameDevTV.Utils;
 
 namespace RPG.Control
 {
@@ -18,7 +15,7 @@ namespace RPG.Control
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 3f;
-        [Range(0,1)]
+        [Range(0, 1)]
         [SerializeField] float patrolSpeedFraction = 0.2f;
         [SerializeField] float shoutDistance = 5f;
 
@@ -33,7 +30,8 @@ namespace RPG.Control
         float timeSinceAggrevated = Mathf.Infinity;
         int currentWaypointIndex = 0;
 
-        private void Awake() {
+        private void Awake()
+        {
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
@@ -47,7 +45,8 @@ namespace RPG.Control
             return transform.position;
         }
 
-        private void Start() {
+        private void Start()
+        {
             guardPosition.ForceInit();
         }
 
@@ -151,7 +150,8 @@ namespace RPG.Control
         }
 
         // Called by Unity
-        private void OnDrawGizmosSelected() {
+        private void OnDrawGizmosSelected()
+        {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, chaseDistance);
         }
