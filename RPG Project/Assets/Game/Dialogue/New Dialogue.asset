@@ -13,41 +13,50 @@ MonoBehaviour:
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: a
-    text: Hey this is A
+  - uniqueID: a5c94753-b56a-4fae-8855-71b7810f573d
+    text: 
     children:
-    - b
-    - c
+    - dd6e8708-1046-4079-8d12-39ef8ba85326
+    - 294bc3d1-9b21-4b52-a8c0-91b3a3a784cb
     rect:
       serializedVersion: 2
-      x: 31
-      y: 24
-      width: 200
-      height: 200
-  - uniqueID: b
-    text: Hey this is B
-    children: []
-    rect:
-      serializedVersion: 2
-      x: 271
-      y: 265
+      x: 50
+      y: 60
       width: 200
       height: 100
-  - uniqueID: c
-    text: Hey this is C
+  - uniqueID: 7db49fc6-86fd-4a3a-9645-fc13356ac683
+    text: 
     children: []
     rect:
       serializedVersion: 2
-      x: 274
-      y: 26
+      x: 570
+      y: 17
       width: 200
       height: 100
-  - uniqueID: d
-    text: Hey this is D
+  - uniqueID: a151e0d1-97d4-4ed2-a88f-80896c040ff5
+    text: 
     children: []
     rect:
       serializedVersion: 2
-      x: 25
-      y: 263
+      x: 553
+      y: 174
+      width: 200
+      height: 100
+  - uniqueID: dd6e8708-1046-4079-8d12-39ef8ba85326
+    text: 
+    children: []
+    rect:
+      serializedVersion: 2
+      x: 317
+      y: 11
+      width: 200
+      height: 100
+  - uniqueID: 294bc3d1-9b21-4b52-a8c0-91b3a3a784cb
+    text: 
+    children: []
+    rect:
+      serializedVersion: 2
+      x: 329
+      y: 132
       width: 200
       height: 100

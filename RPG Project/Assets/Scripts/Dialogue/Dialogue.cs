@@ -19,7 +19,9 @@ namespace RPG.Dialogue
             Debug.Log("Awake from " + name);
             if(nodes.Count == 0)
             {
-                nodes.Add(new DialogueNode());
+                DialogueNode rootNode = new DialogueNode();
+                rootNode.uniqueID = Guid.NewGuid().ToString();
+                nodes.Add(rootNode);
             }
         }
 #endif
@@ -57,6 +59,28 @@ namespace RPG.Dialogue
                     yield return nodeLookup[childName];
                 }
             }
+        }
+
+        public void CreateNode(DialogueNode parent)
+        {
+            DialogueNode child = new DialogueNode();
+            child.uniqueID = Guid.NewGuid().ToString();
+            parent.children.Add(child.uniqueID);
+            nodes.Add(child);
+            OnValidate();
+        }
+
+        public void DeleteNode(DialogueNode node)
+        {
+            nodes.Remove(node);
+            nodeLookup.Remove(node.uniqueID);
+
+            foreach(DialogueNode parent in GetAllNodes())
+            {
+                parent.children.Remove(node.uniqueID);
+            }
+
+            OnValidate();
         }
     }
 }

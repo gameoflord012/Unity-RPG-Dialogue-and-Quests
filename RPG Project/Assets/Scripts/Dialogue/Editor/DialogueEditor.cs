@@ -10,8 +10,15 @@ namespace RPG.Dialogue.Editor
     public class DialogueEditor : EditorWindow
     {
         Dialogue selectedDialogue = null;
+        [NonSerialized]
         GUIStyle nodeStyle;
+        [NonSerialized]
         DialogueNode draggingNode = null;
+        [NonSerialized]
+        DialogueNode creatingNode = null;
+        [NonSerialized]
+        DialogueNode deletingNode = null;
+        [NonSerialized]
         Vector2 draggingOffset = Vector2.zero;
 
         [MenuItem("Window/Dialogue Editor")]
@@ -23,6 +30,7 @@ namespace RPG.Dialogue.Editor
         [OnOpenAsset(1)]
         static public bool OnOpenAsset(int instanceID, int line)
         {
+
             Dialogue dialogue = EditorUtility.InstanceIDToObject(instanceID) as Dialogue;            
 
             if (dialogue != null)
@@ -54,20 +62,40 @@ namespace RPG.Dialogue.Editor
         }
 
         private void OnGUI()
-        {            
-            if(selectedDialogue == null)
+        {
+            if (selectedDialogue == null)
             {
                 EditorGUILayout.LabelField("No Dialogue Selected");
             }
             else
             {
                 ProcessEvents();
-                foreach(DialogueNode node in selectedDialogue.GetAllNodes())
+
+                foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
-                    OnGUINode(node);
+                    DrawConnections(node);
+                }
+
+                foreach (DialogueNode node in selectedDialogue.GetAllNodes())
+                {
+                    DrawNode(node);
+                }
+
+                if(creatingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogue, "Added Dialogue Node");
+                    selectedDialogue.CreateNode(creatingNode);
+                    creatingNode = null;
+                }
+
+                if (deletingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogue, "Deleted Dialogue Node");
+                    selectedDialogue.DeleteNode(deletingNode);
+                    deletingNode = null;
                 }
             }
-        }
+        }        
 
         private void ProcessEvents()
         {
@@ -91,29 +119,60 @@ namespace RPG.Dialogue.Editor
             }
         }
 
-        private void OnGUINode(DialogueNode node)
+        private void DrawNode(DialogueNode node)
         {
             GUILayout.BeginArea(node.rect, nodeStyle);
 
             EditorGUI.BeginChangeCheck();
 
-            EditorGUILayout.LabelField("Node: ", EditorStyles.whiteLabel);
-            string newUniqueID = EditorGUILayout.TextField(node.uniqueID);
             string newText = EditorGUILayout.TextField(node.text);
 
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
                 node.text = newText;
-                node.uniqueID = newUniqueID;
             }
 
-            foreach(DialogueNode childNode in selectedDialogue.GetAllChildren(node))
+            GUILayout.BeginHorizontal();
+            if(GUILayout.Button("+"))
             {
-                EditorGUILayout.LabelField(childNode.text);
+                creatingNode = node;
             }
+
+            if (GUILayout.Button("-"))
+            {
+                deletingNode = node;
+            }
+            GUILayout.EndHorizontal();
 
             GUILayout.EndArea();
+        }
+
+        private void DrawConnections(DialogueNode node)
+        {
+            foreach(DialogueNode childNode in selectedDialogue.GetAllChildren(node))
+            {
+                Vector3 startPosition = GetRectRightCenter(node.rect);
+                Vector3 endPosition = GetRectLeftCenter(childNode.rect);
+                Vector3 controlPointOffsset = endPosition - startPosition;
+                controlPointOffsset.y = 0;
+                controlPointOffsset.x *= 0.8f;
+
+                Handles.DrawBezier(
+                    startPosition, endPosition, 
+                    startPosition + controlPointOffsset, endPosition - controlPointOffsset,
+                    Color.white, null, 4f);
+            }
+        }
+
+        private Vector2 GetRectLeftCenter(Rect rect)
+        {
+            return new Vector2(rect.xMin, rect.center.y);
+        }
+
+        private Vector2 GetRectRightCenter(Rect rect)
+        {
+            return new Vector2(rect.xMax, rect.center.y);
         }
 
         private DialogueNode GetNodeAtPoint(Vector2 point)
