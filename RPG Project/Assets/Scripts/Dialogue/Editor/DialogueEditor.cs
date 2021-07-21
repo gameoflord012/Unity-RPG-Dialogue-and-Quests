@@ -11,6 +11,8 @@ namespace RPG.Dialogue.Editor
         [NonSerialized]
         GUIStyle nodeStyle;
         [NonSerialized]
+        GUIStyle playerNodeStyle;
+        [NonSerialized]
         DialogueNode draggingNode = null;
         [NonSerialized]
         DialogueNode creatingNode = null;
@@ -21,9 +23,9 @@ namespace RPG.Dialogue.Editor
         [NonSerialized]
         DialogueNode linkingParentNode = null;
         Vector2 scrollPosition;
-        [SerializeField]
+        [NonSerialized]
         Vector2 draggingCanvasOffset;
-        [SerializeField]
+        [NonSerialized]
         bool draggingCanvas = false;
 
         const float canvasSize = 4000;
@@ -57,6 +59,12 @@ namespace RPG.Dialogue.Editor
             nodeStyle.normal.textColor = Color.white;
             nodeStyle.padding = new RectOffset(20, 20, 20, 20);
             nodeStyle.border = new RectOffset(12, 12, 12, 12);
+
+            playerNodeStyle = new GUIStyle();
+            playerNodeStyle.normal.background = EditorGUIUtility.Load("node1") as Texture2D;
+            playerNodeStyle.normal.textColor = Color.white;
+            playerNodeStyle.padding = new RectOffset(20, 20, 20, 20);
+            playerNodeStyle.border = new RectOffset(12, 12, 12, 12);
         }
 
         private void OnSelectionChanged()
@@ -150,7 +158,9 @@ namespace RPG.Dialogue.Editor
 
         private void DrawNode(DialogueNode node)
         {
-            GUILayout.BeginArea(node.GetRect(), nodeStyle);
+            GUIStyle style = node.IsPlayerSpeaking() ? playerNodeStyle : nodeStyle;
+
+            GUILayout.BeginArea(node.GetRect(), style);
 
             node.SetText(EditorGUILayout.TextField(node.GetText()));
 
