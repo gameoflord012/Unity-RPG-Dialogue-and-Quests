@@ -38,6 +38,22 @@ namespace RPG.Dialogue
             return nodes[0];
         }
 
+        public IEnumerable<DialogueNode> GetPlayerChildren(DialogueNode currentNode)        
+        {
+            foreach(DialogueNode child in GetAllChildren(currentNode))
+            {
+                if (child.IsPlayerSpeaking()) yield return child;
+            }
+        }
+
+        public IEnumerable<DialogueNode> GetAIChildren(DialogueNode currentNode)
+        {
+            foreach (DialogueNode child in GetAllChildren(currentNode))
+            {
+                if (!child.IsPlayerSpeaking()) yield return child;
+            }
+        }
+
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)
         {
             foreach (string childName in parentNode.GetChildrenIENumberable())

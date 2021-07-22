@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3857570808135942649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 1f8c0fc6-27d3-43fd-be23-b199dd8b2f0c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Money? What money?
+  children:
+  - 65c9e60c-16e7-47e9-8252-34628ccc5bab
+  - 24025e10-13ca-44ca-81da-6135513144cc
+  rect:
+    serializedVersion: 2
+    x: 615
+    y: 327
+    width: 200
+    height: 100
+--- !u!114 &-1726406011455969423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 24025e10-13ca-44ca-81da-6135513144cc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Don't mess with me bitch (Draw a knife).
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 977
+    y: 138
+    width: 200
+    height: 100
+--- !u!114 &-610302206071300097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 745dbee3-85a1-417d-aa6b-c900d5390a71
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Gimme a bread please, so hungry :(((
+  children:
+  - 1a647d9d-3b68-4941-90ca-9a16b5feaf00
+  rect:
+    serializedVersion: 2
+    x: 347
+    y: 28
+    width: 200
+    height: 100
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df26a9b68512cd54abc2e10561dc57d9, type: 3}
+  m_Name: Text
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7548277010639068941}
+  - {fileID: -610302206071300097}
+  - {fileID: 8156621690745019402}
+  - {fileID: 324388320000315862}
+  - {fileID: 8699165377538958349}
+  - {fileID: -3857570808135942649}
+  - {fileID: -1726406011455969423}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &324388320000315862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 1a647d9d-3b68-4941-90ca-9a16b5feaf00
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Bread? But I don't have any!
+  children:
+  - 65c9e60c-16e7-47e9-8252-34628ccc5bab
+  - 24025e10-13ca-44ca-81da-6135513144cc
+  rect:
+    serializedVersion: 2
+    x: 614
+    y: 105
+    width: 200
+    height: 100
+--- !u!114 &7548277010639068941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 687111a0-3221-4dd1-bc23-d9e5a68dd1a3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hello there, what do you need huh?
+  children:
+  - 745dbee3-85a1-417d-aa6b-c900d5390a71
+  - 8c7b2aaa-e8f8-49d2-a6a1-9a4347130989
+  rect:
+    serializedVersion: 2
+    x: 100
+    y: 100
+    width: 200
+    height: 100
+--- !u!114 &8156621690745019402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 8c7b2aaa-e8f8-49d2-a6a1-9a4347130989
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Give me all you money, you son of a bitch!!@!!
+  children:
+  - 1f8c0fc6-27d3-43fd-be23-b199dd8b2f0c
+  rect:
+    serializedVersion: 2
+    x: 342
+    y: 221
+    width: 200
+    height: 100
+--- !u!114 &8699165377538958349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 65c9e60c-16e7-47e9-8252-34628ccc5bab
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Of course you have, NOW GIVVME OR DIEEE
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 975
+    y: 282
+    width: 200
+    height: 100
