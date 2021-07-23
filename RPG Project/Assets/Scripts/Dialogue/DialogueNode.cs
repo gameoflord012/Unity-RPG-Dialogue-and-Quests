@@ -12,6 +12,9 @@ namespace RPG.Dialogue
         [SerializeField] List<string> children = new List<string>();
         [SerializeField] Rect rect = new Rect(100, 100, 200, 100);
 
+        [SerializeField] string OnEnterAction;
+        [SerializeField] string OnExitAction;
+
         public string GetText()
         {
             return text;
@@ -35,8 +38,19 @@ namespace RPG.Dialogue
         public bool IsPlayerSpeaking()
         {
             return isPlayerSpeaking;
+        }        
+
+        public string GetOnEnterAction()
+        {
+            return OnEnterAction;
         }
 
+        public string GetOnExitAction()
+        {
+            return OnExitAction;
+        }
+
+#if UNITY_EDITOR
         public void SetIsPlayerSpeaking(bool value)
         {
             Undo.RecordObject(this, "Change Dialogue Speaker");
@@ -44,7 +58,6 @@ namespace RPG.Dialogue
             EditorUtility.SetDirty(this);
         }
 
-#if UNITY_EDITOR
         public void RemoveChild(string childID)
         {
             Undo.RecordObject(this, "Remove child");

@@ -23,6 +23,8 @@ MonoBehaviour:
     y: 327
     width: 200
     height: 100
+  OnEnterAction: 
+  OnExitAction: 
 --- !u!114 &-1726406011455969423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,13 +39,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Don't mess with me bitch (Draw a knife).
-  children: []
+  children:
+  - 438be28d-1f06-47be-b252-56e798521f71
   rect:
     serializedVersion: 2
     x: 977
     y: 138
     width: 200
     height: 100
+  OnEnterAction: 
+  OnExitAction: Attack
 --- !u!114 &-610302206071300097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +67,12 @@ MonoBehaviour:
   - 1a647d9d-3b68-4941-90ca-9a16b5feaf00
   rect:
     serializedVersion: 2
-    x: 347
-    y: 28
+    x: 346
+    y: 27
     width: 200
     height: 100
+  OnEnterAction: 
+  OnExitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +93,7 @@ MonoBehaviour:
   - {fileID: 8699165377538958349}
   - {fileID: -3857570808135942649}
   - {fileID: -1726406011455969423}
+  - {fileID: 7914129566156955102}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &324388320000315862
 MonoBehaviour:
@@ -110,6 +118,8 @@ MonoBehaviour:
     y: 105
     width: 200
     height: 100
+  OnEnterAction: 
+  OnExitAction: 
 --- !u!114 &7548277010639068941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,9 +140,34 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 100
-    y: 100
+    y: 101
     width: 200
     height: 100
+  OnEnterAction: 
+  OnExitAction: 
+--- !u!114 &7914129566156955102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 438be28d-1f06-47be-b252-56e798521f71
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: AHH DIEEE!!!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1226
+    y: 222
+    width: 200
+    height: 100
+  OnEnterAction: 
+  OnExitAction: 
 --- !u!114 &8156621690745019402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +190,8 @@ MonoBehaviour:
     y: 221
     width: 200
     height: 100
+  OnEnterAction: 
+  OnExitAction: 
 --- !u!114 &8699165377538958349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +206,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Of course you have, NOW GIVVME OR DIEEE
-  children: []
+  children:
+  - 438be28d-1f06-47be-b252-56e798521f71
   rect:
     serializedVersion: 2
-    x: 975
+    x: 977
     y: 282
     width: 200
     height: 100
+  OnEnterAction: 
+  OnExitAction: Attack

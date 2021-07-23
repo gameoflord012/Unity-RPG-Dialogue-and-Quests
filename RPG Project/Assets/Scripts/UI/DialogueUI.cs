@@ -4,6 +4,7 @@ using UnityEngine;
 using RPG.Dialogue;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 namespace RPG.UI
 {
@@ -11,36 +12,34 @@ namespace RPG.UI
     {
         [SerializeField] TextMeshProUGUI AIText;
         [SerializeField] Button nextButton;
+        [SerializeField] Button quitButton;
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
         [SerializeField] GameObject AIResponse;
+        [SerializeField] TextMeshProUGUI conversantName;
 
         private PlayerConversant playerConversant;
 
         private void Awake()
         {
-            playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();            
+            playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
+            playerConversant.OnConversationUpdated += UpdateUI;
         }
 
         private void Start()
         {
-            nextButton.onClick.AddListener(Next);
-        }
-
-        private void OnEnable()
-        {
-            playerConversant.OnConversationUpdated += UpdateUI;
-        }
-
-        private void OnDisable()
-        {
-            playerConversant.OnConversationUpdated -= UpdateUI;
+            nextButton.onClick.AddListener(() => playerConversant.Next());
+            quitButton.onClick.AddListener(() => playerConversant.Quit());
+            UpdateUI();
         }
 
         private void UpdateUI()
         {
+            gameObject.SetActive(playerConversant.IsActive());
+
             if (!playerConversant.IsActive()) return;
 
+            conversantName.text = playerConversant.GetCurrentConversantName();
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());            
 
@@ -69,7 +68,6 @@ namespace RPG.UI
                 button.onClick.AddListener(() => 
                 {
                     playerConversant.SelectChoice(choiceNode);
-                    Next();
                 });
             }
         }
@@ -80,11 +78,6 @@ namespace RPG.UI
             {
                 Destroy(item.gameObject);
             }
-        }
-
-        void Next()
-        {
-            playerConversant.Next();
         }
     }
 }
