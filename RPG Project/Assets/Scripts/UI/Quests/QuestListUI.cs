@@ -8,15 +8,24 @@ namespace RPG.UI.Quests
         [SerializeField] Quest[] tempQuests;
         [SerializeField] QuestItemUI questPrefab;
 
+        private QuestList questList;
+
         private void Start()
-        {            
-            foreach(Transform child in transform)
+        {
+            questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
+            questList.OnQuestListUpdated += UpdateUI;
+
+            UpdateUI();
+        }
+
+        private void UpdateUI()
+        {
+            foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
             }
 
-            QuestList questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
-            foreach(QuestStatus status in questList.GetStatuses())
+            foreach (QuestStatus status in questList.GetStatuses())
             {
                 QuestItemUI questUI = Instantiate(questPrefab, transform);
                 questUI.SetUp(status);

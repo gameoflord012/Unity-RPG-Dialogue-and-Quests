@@ -202,6 +202,7 @@ MonoBehaviour:
   objectiveContainer: {fileID: 4463691088421838789}
   objectivePrefab: {fileID: 8391420430706049473, guid: 7da15376399d69f43a5f5c4caf1976d8,
     type: 3}
+  rewardText: {fileID: 8799817376581282505}
 --- !u!1 &2563016393845065486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1457,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4463691088421838789}
     m_Modifications:
+    - target: {fileID: 287220736461174508, guid: 7da15376399d69f43a5f5c4caf1976d8,
+        type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 287220736461174508, guid: 7da15376399d69f43a5f5c4caf1976d8,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 366553183057331738, guid: 7da15376399d69f43a5f5c4caf1976d8,
         type: 3}
       propertyPath: m_AnchorMax.y

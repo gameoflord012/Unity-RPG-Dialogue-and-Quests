@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using RPG.Dialogue;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 namespace RPG.UI
 {
@@ -41,9 +38,9 @@ namespace RPG.UI
 
             conversantName.text = playerConversant.GetCurrentConversantName();
             AIResponse.SetActive(!playerConversant.IsChoosing());
-            choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());            
+            choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 
-            if(playerConversant.IsChoosing())
+            if (playerConversant.IsChoosing())
             {
                 BuildChoiceList();
             }
@@ -59,13 +56,13 @@ namespace RPG.UI
         {
             DestroyDefaultButton();
 
-            foreach (DialogueNode choiceNode in playerConversant.GetChoiceNode())
+            foreach (DialogueNode choiceNode in playerConversant.GetChoices())
             {
                 GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);
                 TextMeshProUGUI text = choiceInstance.GetComponentInChildren<TextMeshProUGUI>();
                 text.text = choiceNode.GetText();
                 Button button = choiceInstance.GetComponentInChildren<Button>();
-                button.onClick.AddListener(() => 
+                button.onClick.AddListener(() =>
                 {
                     playerConversant.SelectChoice(choiceNode);
                 });

@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7023541082217826347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: d320a6e3-662e-4ed1-a17d-3fc3f7edb890
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Mamom, LET'S FUCKK
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 604
+    y: 208
+    width: 200
+    height: 100
+  OnEnterAction: 
+  OnExitAction: GiveQuest
+--- !u!114 &-5332185338008541854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: fa3f4eaf-5e91-4219-8c73-af697fb6544c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: where's your mom
+  children:
+  - d320a6e3-662e-4ed1-a17d-3fc3f7edb890
+  rect:
+    serializedVersion: 2
+    x: 354
+    y: 209
+    width: 200
+    height: 100
+  OnEnterAction: 
+  OnExitAction: 
+--- !u!114 &-1138588007559355592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: cabeaa49-f900-4c14-a48b-c93726384fc6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Wuzzup brother
+  children:
+  - d320a6e3-662e-4ed1-a17d-3fc3f7edb890
+  rect:
+    serializedVersion: 2
+    x: 351
+    y: 100
+    width: 200
+    height: 100
+  OnEnterAction: 
+  OnExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df26a9b68512cd54abc2e10561dc57d9, type: 3}
+  m_Name: FuckMomQuest
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 299415613016614444}
+  - {fileID: -1138588007559355592}
+  - {fileID: -5332185338008541854}
+  - {fileID: 289447079099144590}
+  - {fileID: -7023541082217826347}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &289447079099144590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 9167b766-f2ed-4192-9114-050c3af274e6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Can you suck ma D
+  children:
+  - d320a6e3-662e-4ed1-a17d-3fc3f7edb890
+  rect:
+    serializedVersion: 2
+    x: 355
+    y: 319
+    width: 200
+    height: 100
+  OnEnterAction: 
+  OnExitAction: 
+--- !u!114 &299415613016614444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 2118c746-4b4a-417c-913b-f9f46e7588a7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Heyheyhey!!!!
+  children:
+  - cabeaa49-f900-4c14-a48b-c93726384fc6
+  - fa3f4eaf-5e91-4219-8c73-af697fb6544c
+  - 9167b766-f2ed-4192-9114-050c3af274e6
+  rect:
+    serializedVersion: 2
+    x: 102
+    y: 102
+    width: 200
+    height: 100
+  OnEnterAction: 
+  OnExitAction: 

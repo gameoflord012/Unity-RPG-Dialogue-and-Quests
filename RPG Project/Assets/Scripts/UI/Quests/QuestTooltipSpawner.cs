@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using GameDevTV.Core.UI.Tooltips;
 using RPG.Quests;
+using UnityEngine;
 
 namespace RPG.UI.Quests
 {

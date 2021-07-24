@@ -1,3 +1,5 @@
+using RPG.Core;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -14,6 +16,8 @@ namespace RPG.Dialogue
 
         [SerializeField] string OnEnterAction;
         [SerializeField] string OnExitAction;
+        [SerializeField]
+        Condition condition;
 
         public string GetText()
         {
@@ -30,6 +34,11 @@ namespace RPG.Dialogue
             return children;
         }
 
+        public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
+        {
+            return condition.Check(evaluators);
+        }
+
         public bool ContainsChild(string childID)
         {
             return children.Contains(childID);
@@ -38,7 +47,7 @@ namespace RPG.Dialogue
         public bool IsPlayerSpeaking()
         {
             return isPlayerSpeaking;
-        }        
+        }
 
         public string GetOnEnterAction()
         {

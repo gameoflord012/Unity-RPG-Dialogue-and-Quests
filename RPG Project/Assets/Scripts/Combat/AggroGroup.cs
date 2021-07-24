@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -16,12 +14,12 @@ namespace RPG.Combat
 
         public void Activate(bool shouldActive)
         {
-            foreach(Fighter fighter in fighters)
+            foreach (Fighter fighter in fighters)
             {
                 fighter.enabled = shouldActive;
 
                 CombatTarget target = fighter.GetComponent<CombatTarget>();
-                if(target != null)
+                if (target != null)
                 {
                     target.enabled = shouldActive;
                 }

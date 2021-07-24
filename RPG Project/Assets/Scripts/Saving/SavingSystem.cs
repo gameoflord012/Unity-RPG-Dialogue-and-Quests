@@ -86,7 +86,8 @@ namespace GameDevTV.Saving
         {
             foreach (SaveableEntity saveable in FindObjectsOfType<SaveableEntity>())
             {
-                state[saveable.GetUniqueIdentifier()] = saveable.CaptureState();
+                object captureObject = saveable.CaptureState();
+                state[saveable.GetUniqueIdentifier()] = captureObject;
             }
 
             state["lastSceneBuildIndex"] = SceneManager.GetActiveScene().buildIndex;

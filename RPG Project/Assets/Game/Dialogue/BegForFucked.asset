@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df26a9b68512cd54abc2e10561dc57d9, type: 3}
-  m_Name: Text
+  m_Name: BegForFucked
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 7548277010639068941}
@@ -166,7 +166,7 @@ MonoBehaviour:
     y: 222
     width: 200
     height: 100
-  OnEnterAction: 
+  OnEnterAction: TestObjective
   OnExitAction: 
 --- !u!114 &8156621690745019402
 MonoBehaviour:

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace RPG.Dialogue
@@ -11,7 +10,7 @@ namespace RPG.Dialogue
 
         public void Trigger(string actionToTrigger)
         {
-            if(actionToTrigger == action)
+            if (actionToTrigger == action)
             {
                 OnTrigger.Invoke();
             }

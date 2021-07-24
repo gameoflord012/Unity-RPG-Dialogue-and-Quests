@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
+using RPG.Core;
 
 namespace RPG.Dialogue
-{    
+{
     public class PlayerConversant : MonoBehaviour
     {
         public event System.Action OnConversationUpdated;
@@ -22,6 +21,22 @@ namespace RPG.Dialogue
         public bool IsActive()
         {
             return currentDialogue != null;
+        }
+
+        public IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
+        {
+            foreach(var node in inputNode)
+            {
+                if(node.CheckCondition(GetEvaluators()))
+                {
+                    yield return node;
+                }
+            }
+        }
+
+        private IEnumerable<IPredicateEvaluator> GetEvaluators()
+        {
+            return GetComponents<IPredicateEvaluator>();
         }
 
         public void Quit()
@@ -45,7 +60,7 @@ namespace RPG.Dialogue
 
         public string GetText()
         {
-            if(currentNode == null)
+            if (currentNode == null)
             {
                 return "NULL";
             }
@@ -55,8 +70,8 @@ namespace RPG.Dialogue
 
         public string GetCurrentConversantName()
         {
-            if(isChoosing)
-            {                
+            if (isChoosing)
+            {
                 return playerConersantName;
             }
             else
@@ -70,12 +85,9 @@ namespace RPG.Dialogue
             return isChoosing;
         }
 
-        public IEnumerable<DialogueNode> GetChoiceNode()
+        public IEnumerable<DialogueNode> GetChoices()
         {
-           foreach(DialogueNode child in currentDialogue.GetPlayerChildren(currentNode))
-            {
-                yield return child;
-            }
+            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode));
         }
 
         public void SelectChoice(DialogueNode chosenNode)
@@ -87,8 +99,8 @@ namespace RPG.Dialogue
 
         public void Next()
         {
-            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
-            if(numPlayerResponses > 0)
+            int numPlayerResponses = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
+            if (numPlayerResponses > 0)
             {
                 isChoosing = true;
                 TriggerExitAction();
@@ -96,7 +108,7 @@ namespace RPG.Dialogue
                 return;
             }
 
-            DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
+            DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
 
             TriggerExitAction();
             currentNode = children[Random.Range(0, children.Length)];
@@ -108,7 +120,7 @@ namespace RPG.Dialogue
 
         public bool HasNext()
         {
-            return currentDialogue.GetAllChildren(currentNode).Count() > 0;
+            return FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
         }
 
         public void TriggerEnterAction()
@@ -118,7 +130,7 @@ namespace RPG.Dialogue
                 TriggerAction(currentNode.GetOnEnterAction());
             }
         }
-        
+
         public void TriggerExitAction()
         {
             if (currentNode != null && currentNode.GetOnExitAction() != null)

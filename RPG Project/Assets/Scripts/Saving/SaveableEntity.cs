@@ -41,6 +41,12 @@ namespace GameDevTV.Saving
             Dictionary<string, object> state = new Dictionary<string, object>();
             foreach (ISaveable saveable in GetComponents<ISaveable>())
             {
+                object captureObject = saveable.CaptureState();
+                if (!captureObject.GetType().IsSerializable)
+                {
+                    throw new UnityException(captureObject + " is not serializable");
+                }
+
                 state[saveable.GetType().ToString()] = saveable.CaptureState();
             }
             return state;
