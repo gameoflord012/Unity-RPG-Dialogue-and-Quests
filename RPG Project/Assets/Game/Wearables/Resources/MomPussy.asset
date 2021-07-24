@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: MomPussy
   m_EditorClassIdentifier: 
   itemID: beea10c0-f7d5-4614-b846-3006a2e58e95
-  displayName: 
-  description: 
-  icon: {fileID: 0}
-  pickup: {fileID: 0}
+  displayName: Mom Pussy
+  description: Can be eaten
+  icon: {fileID: 21300000, guid: 4e75d1909c6fd8844a31ebef4c5e3972, type: 3}
+  pickup: {fileID: 743510599615345213, guid: 0715da6d594191c43a75bbdd035e8646, type: 3}
   stackable: 0
   allowedEquipLocation: 5
   additiveModifiers: []

@@ -18,11 +18,44 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 604
-    y: 208
+    y: 207
     width: 200
     height: 100
   OnEnterAction: 
   OnExitAction: GiveQuest
+  condition:
+    and: []
+--- !u!114 &-6629005413929229424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 46688717-12b8-44c6-9dc1-4c594bb3dfa3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: HasInventoryItem
+  children:
+  - d320a6e3-662e-4ed1-a17d-3fc3f7edb890
+  rect:
+    serializedVersion: 2
+    x: 359
+    y: 424
+    width: 200
+    height: 100
+  OnEnterAction: 
+  OnExitAction: 
+  condition:
+    and:
+    - or:
+      - negate: 0
+        predicate: HasInventoryItem
+        parameters:
+        - beea10c0-f7d5-4614-b846-3006a2e58e95
 --- !u!114 &-5332185338008541854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,7 +69,7 @@ MonoBehaviour:
   m_Name: fa3f4eaf-5e91-4219-8c73-af697fb6544c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: where's your mom
+  text: CompletedQuest
   children:
   - d320a6e3-662e-4ed1-a17d-3fc3f7edb890
   rect:
@@ -47,6 +80,13 @@ MonoBehaviour:
     height: 100
   OnEnterAction: 
   OnExitAction: 
+  condition:
+    and:
+    - or:
+      - negate: 0
+        predicate: CompletedQuest
+        parameters:
+        - Fuckmamamom
 --- !u!114 &-1138588007559355592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,17 +100,24 @@ MonoBehaviour:
   m_Name: cabeaa49-f900-4c14-a48b-c93726384fc6
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Wuzzup brother
+  text: Default
   children:
   - d320a6e3-662e-4ed1-a17d-3fc3f7edb890
   rect:
     serializedVersion: 2
-    x: 351
+    x: 352
     y: 100
     width: 200
     height: 100
   OnEnterAction: 
   OnExitAction: 
+  condition:
+    and:
+    - or:
+      - negate: 0
+        predicate: 
+        parameters:
+        - 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +136,8 @@ MonoBehaviour:
   - {fileID: -5332185338008541854}
   - {fileID: 289447079099144590}
   - {fileID: -7023541082217826347}
+  - {fileID: -6629005413929229424}
+  - {fileID: 3319309792823204987}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &289447079099144590
 MonoBehaviour:
@@ -103,17 +152,24 @@ MonoBehaviour:
   m_Name: 9167b766-f2ed-4192-9114-050c3af274e6
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Can you suck ma D
+  text: HasQuest
   children:
   - d320a6e3-662e-4ed1-a17d-3fc3f7edb890
   rect:
     serializedVersion: 2
     x: 355
-    y: 319
+    y: 317
     width: 200
     height: 100
   OnEnterAction: 
   OnExitAction: 
+  condition:
+    and:
+    - or:
+      - negate: 0
+        predicate: HasQuest
+        parameters:
+        - Fuckmamamom
 --- !u!114 &299415613016614444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +188,8 @@ MonoBehaviour:
   - cabeaa49-f900-4c14-a48b-c93726384fc6
   - fa3f4eaf-5e91-4219-8c73-af697fb6544c
   - 9167b766-f2ed-4192-9114-050c3af274e6
+  - 46688717-12b8-44c6-9dc1-4c594bb3dfa3
+  - 12293ada-54b7-49a9-972a-21fbbcbc31e1
   rect:
     serializedVersion: 2
     x: 102
@@ -140,3 +198,40 @@ MonoBehaviour:
     height: 100
   OnEnterAction: 
   OnExitAction: 
+  condition:
+    and: []
+--- !u!114 &3319309792823204987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd52a07c333dc64db16e2e808af6155, type: 3}
+  m_Name: 12293ada-54b7-49a9-972a-21fbbcbc31e1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: HasQuest And HasInventoryItem
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 370
+    y: 543
+    width: 200
+    height: 100
+  OnEnterAction: 
+  OnExitAction: 
+  condition:
+    and:
+    - or:
+      - negate: 0
+        predicate: HasQuest
+        parameters:
+        - Fuckmamamom
+    - or:
+      - negate: 0
+        predicate: HasInventoryItem
+        parameters:
+        - beea10c0-f7d5-4614-b846-3006a2e58e95

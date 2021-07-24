@@ -13,7 +13,18 @@ MonoBehaviour:
   m_Name: Fuckmamamom
   m_EditorClassIdentifier: 
   objectives:
-  - Call mamom
-  - Go To beed
-  - Shiet Your self
-  - Fuck mamom
+  - reference: 1
+    description: Kill the beast
+  - reference: 2
+    description: Talk to your doctor
+  - reference: 3
+    description: Go home and cooking
+  - reference: 4
+    description: Fuck your wife
+  rewards:
+  - number: 2
+    item: {fileID: 11400000, guid: c2a2bd9b5a47ec64daeb6cdb3c2f18ee, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 0071fb8ea1b0df04baa6fd317f52b9a2, type: 2}
+  - number: 3
+    item: {fileID: 11400000, guid: d64a307491012e543995a2eef4f8cf74, type: 2}
